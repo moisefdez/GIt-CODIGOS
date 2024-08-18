@@ -1,1 +1,10 @@
 # CODIGOS PARA GIT 
+
+## configurar nombre y correo 
+git config --global user.name <nombre usuaria>
+git config --global user.email <correo>
+
+git config --global --list: Esto nos muestra el listado de configuraciones en el 
+area global que hemos configurado.
+
+git config --global core.editor "core --watt" : Este nos permite configuar el editor de codigo de tu preferencia, este caso el codigo para "vs code " es "core" y el "--wait", es para que el editor de codigo permanesca abierto hasta que termines de hacer los cambios.
