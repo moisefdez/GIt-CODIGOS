@@ -91,6 +91,8 @@ Para comparar commit necesitamos pimero indentificar los mismo, para eso usamos 
 git log --oneline: nos enseña un listado de los commit que han sidos subios,señanlado donde
 estamos posicionados con un <HEAD>.
 
+git log --oneline --all: nos muestra los commit de todas las ramas existentes.
+
 Ahora, lo recomendable que cada commit para poder indentificar tenga 8 a mas caracteteres
 ya que menos de ahi, hay posibilidad de parentesco, ¿como cambiamos eso?
 
@@ -115,3 +117,62 @@ subir los al area de stage y luego haces el "git commit --amend".
 Te aparecera tu editor de codigo con el nombre del commit que quiere editar y al lado tendra
 que editarlo y si quieres asignarle un nuevo nombre entonces lo cambiar y luego finaliazmos con
 git commit --amend.
+
+Ahora para hacer que los demas commit regresen despues de haber editado el que queriamos, escribimos
+git rebase --contine.
+
+Nota: si quieres hacer el mismo procedimiento en algun commit inferior, solo tienes que cambiar
+el head~ al numero del commit inferior que decidad utiliaz. ej: head~3.
+
+Solo se utiliza en casos estremo, no es recomendable utiliazrlo.
+
+¿Como desacer un commit?
+
+git reset --soft <hasd> : no elimina el commit, pero nos los coloca otra vez en el area de 
+stage;tambien se puede utilizar con Head~1 .
+
+git reset --mixed <hasd>: este nos elimina el commit elegido, al mismo tiempo el que esta en 
+el area de stage pero sin tocar nuestra area de trabajo.
+
+git reset --hard <hasd>: este no redirije al hasd que selecionamos y nos trae esos cambios
+devueta a nuestra area de trabajo, pero si lo colocas en el commit que estas posicionado actual
+mente este te trae eso arhivos al area de trabajo.
+
+Nota: al utilizarlo los cambios en el area de stage se eliminaran y si tienes cambios en el}
+area local tambien los perderas.
+
+##Ramas
+
+git branch <nombre-de-la-rama>: asi creamos una rama, el nombre tiene que ir en minuscula y
+separado por guiones.
+
+git branch -m <nombre-de-la-rama-viejo> <nombre-de-la-rama-nuevo>: asi podremos renombrar
+las ramas.
+
+git branch -m <nombre-de-la-rama-nuevo> : esto nos permite cambiar el nombre de la rama, pero
+tenemos que estar dentro de ella.
+
+git checkout <nombre-de-la-rama>: nos posiciona en la rama que seleccionamos, pero la forma
+mas segura es utilizando "git switch <nombre-de-la-rama>"
+
+git swicth -c <nombre-de-la-rama>: nos crear una rama con el nombre selecionando y tambien
+nos posiciona en ella.
+
+¿Como borrar una rama?
+
+para hacerlo primero necesitamos estar en la rama principal y despues se ejecuta el siguiente
+comando:
+
+git branch -d <nombre-de-la-rama>
+
+# Fucionar ramas
+
+git merge <nombre-de-la-rama>: este comando nos fucionara las ramas, pero primero hay que
+estar colocado en la rama main antes de fucionar.
+
+¿Como regresas al estado anterior unir una rama?
+
+git reset --hard <hasd antes del merge>: este nos elimina el commit donde hicimoes el merge
+al mismo tiempo no elimina la rama secundaria, para que regrese la rama secunadria colocamos
+git switch optimize <nombre-de-la-rama-secundaria>.
+
