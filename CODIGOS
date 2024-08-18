@@ -35,6 +35,7 @@ un commit.
 git rm --cached <nombre de archivo> se nos baja el archivo del area de staged y si haces un commit este 
 no se sumara a los cambios o no hara ningun commit.
 
+
 Staged o area de Staged: es el area donde se suben los cambios que estan listos para hacer un commit.
 
 git commit -m "cometario-corto": nos permite hacer commit a los archivos que ya esta listo en el area
@@ -53,3 +54,64 @@ el ultimo commit que hicimos, solo se efectua si no hay nada en el area de stage
 
 git reset --hard : nos devuelve los cambios al ultimo commit que hicimos, nos posisicona
 en el, ademas destaca los cambios hechos en el area de stage.
+
+git commit -m "cometario-corto": nos permite hacer commit a los archivos que ya esta listo en el area
+de staged , con un comentario corto.
+
+git commit : nos permite  hace commit de los cambios, al mismo tiempo se nos abre
+el editor de codigo para asi colocar el comentario , siendo tal vez las largo.
+
+git commit -a: nos permite hacer un commit sin tener que subir los cambios al area
+de staged.
+
+## Restore , ckeckout y mas.
+
+git checkout <nombre-archivo> : nos perimite restarurar el archivo que tenemos con
+el ultimo commit que hicimos, solo se efectua si no hay nada en el area de stage.
+
+Nota: si hacer git checkout despues de renombrar un archivo, nos trae una copia del archivo
+con el nombre anterior.
+
+git reset --hard : nos devuelve los cambios al ultimo commit que hicimos, nos posisicona
+en el, ademas destaca los cambios hechos en el area de stage.
+
+## Git Diff
+
+git show : este nos enseña informacion sobre el ultimo archivo que hicimos commit y ademas
+nos muestras la lias de codigo que se hicieron commit.
+
+git diff --staged: esto nos muestra en rojo las lineas de codigo que cambiaron o se agregaron
+nuevas en el area de staged y nos la compara con las que esta en el commit, mostrandolas en
+rojo las que estan el area de staged y en verde la del commit 
+
+##COMPRAR COMMIT
+
+Para comparar commit necesitamos pimero indentificar los mismo, para eso usamos este codigo
+
+git log --oneline: nos enseña un listado de los commit que han sidos subios,señanlado donde
+estamos posicionados con un <HEAD>.
+
+Ahora, lo recomendable que cada commit para poder indentificar tenga 8 a mas caracteteres
+ya que menos de ahi, hay posibilidad de parentesco, ¿como cambiamos eso?
+
+git config --global core.abbrev <numero de caracteteres> : con esto podremos cambiar el 
+numero de caracteres que nos muestra.
+
+git diff <hasd1> <hasd2>: esto nos muestra la comparacion entre dos commit y nos enseña
+los cambios entre esos dos archivos.
+
+git diff --name-only <hasd>: nos muestra el nombre de los arhivos que cambiaron en este
+commit seleccinado.
+
+git diff --word-diff <hasd1> <hasd2> : nos muestra la diferencia entre las linea de codigo
+que cambiaron entre estos dos hasd.
+
+# ¿Como modificiar un commit?
+
+git commit --amend : esto nos permite modificar el comentario de un commit, si quieres modircar
+el contenido de un commit, pero tienes que hacer mas modificaciones que desees en los archivos
+subir los al area de stage y luego haces el "git commit --amend".
+
+Te aparecera tu editor de codigo con el nombre del commit que quiere editar y al lado tendra
+que editarlo y si quieres asignarle un nuevo nombre entonces lo cambiar y luego finaliazmos con
+git commit --amend.
