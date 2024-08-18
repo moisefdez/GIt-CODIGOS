@@ -108,6 +108,9 @@ commit seleccinado.
 git diff --word-diff <hasd1> <hasd2> : nos muestra la diferencia entre las linea de codigo
 que cambiaron entre estos dos hasd.
 
+git ls-tree -r --name-only <hasd>: nos muestra el nombre de cada archivo que se encuentra en
+el hasd seleccionado, tambien podemos utilizar el <head~> en este caso.
+
 # ¿Como modificiar un commit?
 
 git commit --amend : esto nos permite modificar el comentario de un commit, si quieres modircar
@@ -175,4 +178,43 @@ estar colocado en la rama main antes de fucionar.
 git reset --hard <hasd antes del merge>: este nos elimina el commit donde hicimoes el merge
 al mismo tiempo no elimina la rama secundaria, para que regrese la rama secunadria colocamos
 git switch optimize <nombre-de-la-rama-secundaria>.
+
+# Confictos o Merge Confictos
+
+Para resolver un conficto se hace lo siguiente:
+
+1. nos muestra las ramas y nos indicara que hay un conficto abriendo tu
+editos de codigo.
+
+2. nos mostrara los cambios hechos en la rama main o master y luego en la rama
+secundaria  y nos indicara las opciones finales, se te mostrara en tu editor
+de codigo.
+
+3. anes de escojer un a opcion iremos al boton en la parte derecha inferior
+de tu editor que dice interfaz grafica, ahi nos mostrar una manera mas grafica
+para efectuar los cambios.
+
+4. para aceptar los cambios le damos clic a efectuar conbinacion en  tu  editor
+o colocamos en git <git merge --continue>.
+
+#Gitignore
+
+Esto es para que los archivos que no queramos que se nos suban a staged, no lo hagan si 
+hacemos un <git add . >, o por ninguna razon se suba sin que queramos.
+
+Para utilizarlo solo tenemos que crear un archivo <.Gitignore> y colocar el nombre de los 
+arhivos que quieremos que ignore y hacemos un commit a ese arhivos.
+
+ahora si queredemos ignorar una x cantidad de archivos .txt, no podemos colocar todos los
+nombres de todos los archivos, para eso utilizamos <*.txt>, es significa que todos los arhivos
+.txt se ignoraran.
+
+!archivo: cuando colocas el signo de <!> esto significa que no ignorar ese arhivo.
+
+carpeta/ : esto significa que ignorara los archivos dentro de esa carpeta.
+
+!carpeta/branch.png : esto significa que ignorara los archivos dentro de esa carpeta, execto 
+el archivo branch.png.
+
+
 
