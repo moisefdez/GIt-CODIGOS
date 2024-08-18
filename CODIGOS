@@ -7,4 +7,33 @@ git config --global user.email <correo>
 git config --global --list: Esto nos muestra el listado de configuraciones en el 
 area global que hemos configurado.
 
-git config --global core.editor "core --watt" : Este nos permite configuar el editor de codigo de tu preferencia, este caso el codigo para "vs code " es "core" y el "--wait", es para que el editor de codigo permanesca abierto hasta que termines de hacer los cambios.
+git config --global core.editor "core --watt" : Este nos permite configuar el editor de codigo de tu preferencia, 
+este caso el codigo para "vs code " es "core" y el "--wait", es para que el editor de codigo permanesca abierto hasta
+que termines de hacer los cambios.
+
+git config --global color.ui tru : permite que las salidas en pantalla de git nos devuelvan sean mas coloridas.
+
+git config --global core.autocrlf : nos ayuda a que el saldo de linea entre windows , mac y linux sea compatible a la 
+hora de hacer un push y clone de un repositorio.
+
+
+## PRIMERO PASO EN GIT
+pwd : nos indica en que repositorio estamos ubicados.
+ls : se usa para listar todos los archivos dentro de un repositorio.
+ls -a : nos muestras los archivos ocultos en el repositorio.
+cd : se utiliza para movernos hacia el repositorio.
+cd .. : se utiliza para movernos un repositorio antes.
+mkdir <nombre del repositorio> : se utiliza para crear un repositorio.
+mv <nombre-antiguo> <nombre-nuevo> : se usa para renombrar un repositorio.
+rm -rf <nombre repositorio> : se utiliza para borrar un repositorio.
+
+git init : iniciamos un repositorio en git.
+git add <nombre-archivo> : nos sube los cambios al area de staged.
+git add. : nos sube todos los archivos que haya cambios o nuevos al area de staged.
+git status: nos muestra si hay cambios,archivos nuevos fuera de staged y archivos ya listos para hacer
+un commit.
+git rm --cached <nombre de archivo> se nos baja el archivo del area de staged y si haces un commit este 
+no se sumara a los cambios o no hara ningun commit.
+
+
+Staged o area de Staged: es el area donde se suben los cambios que estan listos para hacer un commit.
