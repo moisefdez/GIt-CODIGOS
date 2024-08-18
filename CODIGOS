@@ -35,5 +35,21 @@ un commit.
 git rm --cached <nombre de archivo> se nos baja el archivo del area de staged y si haces un commit este 
 no se sumara a los cambios o no hara ningun commit.
 
-
 Staged o area de Staged: es el area donde se suben los cambios que estan listos para hacer un commit.
+
+git commit -m "cometario-corto": nos permite hacer commit a los archivos que ya esta listo en el area
+de staged , con un comentario corto.
+
+git commit : nos permite  hace commit de los cambios, al mismo tiempo se nos abre
+el editor de codigo para asi colocar el comentario , siendo tal vez las largo.
+
+git commit -a: nos permite hacer un commit sin tener que subir los cambios al area
+de staged.
+
+## Restore , ckeckout y mas.
+
+git checkout <nombre-archivo> : nos perimite restarurar el archivo que tenemos con
+el ultimo commit que hicimos, solo se efectua si no hay nada en el area de stage.
+
+git reset --hard : nos devuelve los cambios al ultimo commit que hicimos, nos posisicona
+en el, ademas destaca los cambios hechos en el area de stage.
