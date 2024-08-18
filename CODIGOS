@@ -51,6 +51,9 @@ de staged.
 git checkout <nombre-archivo> : nos perimite restarurar el archivo que tenemos con
 el ultimo commit que hicimos, solo se efectua si no hay nada en el area de stage.
 
+Nota: si hacer git checkout despues de renombrar un archivo, nos trae una copia del archivo
+con el nombre anterior.
+
 git reset --hard : nos devuelve los cambios al ultimo commit que hicimos, nos posisicona
 en el, ademas destaca los cambios hechos en el area de stage.
 
