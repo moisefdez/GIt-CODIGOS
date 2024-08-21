@@ -7,8 +7,7 @@ git config --global user.email <correo>
 git config --global --list: Esto nos muestra el listado de configuraciones en el 
 area global que hemos configurado.
 
-git config --global core.editor "core --watt" : Este nos permite configuar el editor de codigo de tu preferencia, 
-este caso el codigo para "vs code " es "core" y el "--wait", es para que el editor de codigo permanesca abierto hasta
+git config --global core.editor "core --watt" : Este nos permite configuar el editor de codigo de tu preferencia, este caso el codigo para "vs code " es "core" y el "--wait", es para que el editor de codigo permanesca abierto hasta
 que termines de hacer los cambios.
 
 git config --global color.ui tru : permite que las salidas en pantalla de git nos devuelvan sean mas coloridas.
@@ -19,22 +18,29 @@ hora de hacer un push y clone de un repositorio.
 
 ## PRIMERO PASO EN GIT
 pwd : nos indica en que repositorio estamos ubicados.
+
 ls : se usa para listar todos los archivos dentro de un repositorio.
+
 ls -a : nos muestras los archivos ocultos en el repositorio.
+
 cd : se utiliza para movernos hacia el repositorio.
+
 cd .. : se utiliza para movernos un repositorio antes.
+
 mkdir <nombre del repositorio> : se utiliza para crear un repositorio.
+
 mv <nombre-antiguo> <nombre-nuevo> : se usa para renombrar un repositorio.
+
 rm -rf <nombre repositorio> : se utiliza para borrar un repositorio.
 
 git init : iniciamos un repositorio en git.
 git add <nombre-archivo> : nos sube los cambios al area de staged.
+
 git add. : nos sube todos los archivos que haya cambios o nuevos al area de staged.
-git status: nos muestra si hay cambios,archivos nuevos fuera de staged y archivos ya listos para hacer
-un commit.
+git status: nos muestra si hay cambios,archivos nuevos fuera de staged y archivos ya listos para hacer un commit.
+
 git rm --cached <nombre de archivo> se nos baja el archivo del area de staged y si haces un commit este 
 no se sumara a los cambios o no hara ningun commit.
-
 
 Staged o area de Staged: es el area donde se suben los cambios que estan listos para hacer un commit.
 
@@ -64,17 +70,6 @@ el editor de codigo para asi colocar el comentario , siendo tal vez las largo.
 git commit -a: nos permite hacer un commit sin tener que subir los cambios al area
 de staged.
 
-## Restore , ckeckout y mas.
-
-git checkout <nombre-archivo> : nos perimite restarurar el archivo que tenemos con
-el ultimo commit que hicimos, solo se efectua si no hay nada en el area de stage.
-
-Nota: si hacer git checkout despues de renombrar un archivo, nos trae una copia del archivo
-con el nombre anterior.
-
-git reset --hard : nos devuelve los cambios al ultimo commit que hicimos, nos posisicona
-en el, ademas destaca los cambios hechos en el area de stage.
-
 ## Git Diff
 
 git show : este nos enseña informacion sobre el ultimo archivo que hicimos commit y ademas
@@ -84,7 +79,7 @@ git diff --staged: esto nos muestra en rojo las lineas de codigo que cambiaron o
 nuevas en el area de staged y nos la compara con las que esta en el commit, mostrandolas en
 rojo las que estan el area de staged y en verde la del commit 
 
-##COMPRAR COMMIT
+##COMPARAR COMMIT
 
 Para comparar commit necesitamos pimero indentificar los mismo, para eso usamos este codigo
 
@@ -121,8 +116,7 @@ Te aparecera tu editor de codigo con el nombre del commit que quiere editar y al
 que editarlo y si quieres asignarle un nuevo nombre entonces lo cambiar y luego finaliazmos con
 git commit --amend.
 
-Ahora para hacer que los demas commit regresen despues de haber editado el que queriamos, escribimos
-git rebase --contine.
+Ahora para hacer que los demas commit regresen despues de haber editado el que queriamos, escribimos git rebase --contine.
 
 Nota: si quieres hacer el mismo procedimiento en algun commit inferior, solo tienes que cambiar
 el head~ al numero del commit inferior que decidad utiliaz. ej: head~3.
@@ -141,7 +135,7 @@ git reset --hard <hasd>: este no redirije al hasd que selecionamos y nos trae es
 devueta a nuestra area de trabajo, pero si lo colocas en el commit que estas posicionado actual
 mente este te trae eso arhivos al area de trabajo.
 
-Nota: al utilizarlo los cambios en el area de stage se eliminaran y si tienes cambios en el}
+Nota: al utilizarlo los cambios en el area de stage se eliminaran y si tienes cambios en el
 area local tambien los perderas.
 
 ##Ramas
@@ -215,6 +209,129 @@ carpeta/ : esto significa que ignorara los archivos dentro de esa carpeta.
 
 !carpeta/branch.png : esto significa que ignorara los archivos dentro de esa carpeta, execto 
 el archivo branch.png.
+
+¿Como colocar un Gitignore globla?
+
+Para eso vamos fuera de todos los repositorios y creamos un archivo ".Gitignore_global", luego colocamos el git <git config --global core . excludesfile + la ubicacion del archivo>.
+
+Ej: git config --global core.excludesfile G:.gitignore-global
+
+Luego se agrega al area de stage y luego se hace un commit.
+
+Ahora cada vez que creemos un repositorio nuevo, no necesitamos crear un gitignore.
+
+Nota: todos los gitignore se eliminan con el boton de delete.
+
+## GIT ALIAS
+
+Esta funcion nos permite crear variables con los comandos de git para asi no tener que escribilos todo el tiempo.
+
+Ej: git log --oneline --all --graph -> esto no permite ver una lista detallada de cada commit, pero si no queremos escribir todo esto hacemos un 
+ALIAS.
+
+Para crear un alias colocamos el siguiente comando
+ git config --global alias. + <nombre de la variable> + <comando largo>.
+
+ Ej: git config --global alias. log-corto log --oneline --all.
+
+ ## GIT REFLOG
+
+ Esto nos permite ver un historial de todas los commit que han sigo creados.
+
+ Supongamos que borraste un commit con git reset --hard head~ 1, pero deseas restarurar ese commit
+ para eso necesitas tener el hasd de dicho commit, para eso utilisamos git reflog.
+
+ luego podras restaurarlo con git reset --hard + hasd o tambien git checkout + hasd, esto te permitira editar el commit antes de restaurarlo.
+
+ tambien lo deja en un espacio temporar por si queremos seleccionar en que rama queremos restauralo y colocarlo con git switch -c + <nombre de la rama>.
+
+
+ ## INTRODUCCION A GITHUP
+
+ Githup: es una platafoma de hosting de codigo para control de versiones y colaboracion. nos permite trabajar junto a otros desarroyadores en proyectos desde cualquier lugar usando git.
+
+ 1. crear cuenta de git 
+
+ 2. Personalizar nuestro perfil:
+    Vamos al icono que esta en el lado derecho superior y damos click a you profile, luego edit profile.
+
+    Ahi configuramos lo siguiente: name, bio(desciption) y cambiamos foto de perfil.
+
+ 3. Crear repositorio remoto:
+     
+    Iremos a al logo de githup, hacemos click en ella y luego click en crear repositorio.
+
+    Nombre de repositorio (hay que usar guiones para los nombres).
+
+    desciption (colocamos de que trata el repositorio.)
+
+ 4. Publico o Privado:
+    
+    Repositorio Público: Es accesible para cualquier persona en internet. Cualquier usuario puede ver el código fuente, issues, pull requests, forks y el historial de commits sin necesidad de permisos especiales. Es ideal para proyectos de código abierto, donde la colaboración y la transparencia son fundamentales.
+
+    Repositorio Público: Cualquier usuario puede clonar o descargar el código, y en algunos casos (dependiendo de la configuración), pueden hacer fork del repositorio para trabajar en sus propias versiones.
+
+    Repositorio Privado: Solo es accesible para los usuarios que han sido invitados o tienen permisos específicos para verlo. Nadie fuera de los colaboradores autorizados puede acceder al contenido del repositorio. Es adecuado para proyectos privados, comerciales o cualquier trabajo que requiera confidencialidad.
+
+    Repositorio Privado: Solo los usuarios con permisos pueden clonar, descargar o contribuir al repositorio. Esto ofrece un control más estricto sobre quién puede acceder al código y realizar cambios.
+
+    5. Agregar un Readme file:
+
+    es un archivo que utiliza para describir el origen del repositorio, como usarlo y toda la informacion relacionana que el usuario tiene que saber.
+
+    Nota: buscar la forma correcta de escribir en el archivo readme.
+
+    6. creamos el repositorio.
+
+    ¿Como agregamos un archivo?
+
+    vamos al repositorio que creamos y damos click a add file y copiamos los archivos, luego haces un commit con tu primer comentario.
+
+    Ahora en la opciones de settings del repositorio donde estan las opciones de cambiar el n om bre del repositorio, nombre de la rama (cambiar a master ya que git cambios su nombre de rama principal a master) los issues, sponnshorship, discusssions, danger zone.
+
+    ## GIT CLONE 
+
+    ¿Como clonar un repositorio?
+
+    Estos es descargar el repositorio de githup pero con git, para le damos a la opcion de code en el repositorio remoto y copiamos la url https, luego vamos a git, no ubicamos donde queremos posicionar el repositorio y hacermos un <git clone + url >.
+
+    ## GIT PUSH 
+
+    Nos permite subir los cambios que hemos hecho en nuestro repositorio local al repositorio remoto.
+
+    1. primero hay que configurar tu email global que sea igual al que colocaste en la cuenta de githup.
+
+    ahora haremos un git push -u origen/master, lococamos el -u para que cada vez que hagamos un push siempre se rediriga al origen/master.
+
+    ## GIT PULL Y GIT FETHC
+
+    Git pull nos permite descargar los cambios que se han hecho en el repositorio remoto y nos lo fuciona a la rama principal.
+
+    Nota: si no funciona git pull usar git pull origin/master
+
+    Git fetch  nos permite observar los cambios antes de fucionarlos, si hay cambios esto nos desplegara un texto informativo, sino no arrogara ninguna informacion.
+
+    si hay cambios lo que debemos hacer es escribir el sigiente comando para asi nos cree que rama imaginaria donde podremos ver los cambios hechos: git swicth --detach origen/master, esto nos guiara al commit donde se hizo el cambio al servidor remoto.
+
+    luego si queremos aceptar el cambio regresamos a la rama master y hacemos el pull.
+
+    ¿Como migrar un repositorio a githup desde git?
+
+    Primero creamos el repositorio, luego copiamos la url y luego hacemos el siguiente comando:
+
+    git remote add origin + url.
+    git branch -m master : esto para que tanto como el repositorio remoto y local, las ramas tengan el mismo nombre.
+    git push -u origen/master : para que cada vez que hagamos un push siempre se rediriga al origen/master.
+
+    ##forks
+
+    Esto es cuando nosotros hacemos una copia de un repositorio remoto en nuestro repositorio remoto.
+
+    ## Pull requests
+
+    
+
+ 
 
 
 

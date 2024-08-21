@@ -1,1 +1,1 @@
-En este repositorio esta Localizado todos los comandos necesarios para poder manejar y aprender git y githup.
+En este repositorio esta Localizado todos los comandos necesarios para poder manejar,aprender git y githup.
